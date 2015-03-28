@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.jactr.modules">
+      <module
+            class="de.monochromata.jactr.twm.TWMModule"
+            defaultEnabled="false"
+            name="TWM"
+            requiresCommonReality="false"
+            weight="20">
+         <description>
+            This is the description of your new module
+         </description>
+      </module>
+      <module
+            class="de.monochromata.jactr.dm.NonMergingDeclarativeModule6"
+            defaultEnabled="false"
+            name="NonMergingDeclarative6"
+            requiresCommonReality="false"
+            weight="0">
+         <description>
+            description body text
+         </description>
+      </module>
+      <module
+            class="de.monochromata.jactr.rm.ScopedRetrievalModule6"
+            defaultEnabled="false"
+            name="ScopedRetrieval6"
+            requiresClasspath="false"
+            requiresCommonReality="false"
+            weight="10">
+         <description>
+            description body text
+         </description>
+      </module>
+      <module
+            class="de.monochromata.jactr.dl.CollectionDeclarativeLearningModule6"
+            defaultEnabled="false"
+            name="Collection Declarative Learning Module"
+            requiresClasspath="false"
+            requiresCommonReality="false"
+            weight="5">
+         <description>
+            description body text
+         </description>
+      </module>
+   </extension>
+   <extension
+         point="org.jactr.io.astparticipants">
+      <astparticipant
+            contributingClass="de.monochromata.jactr.twm.TWMModule"
+            content="de/monochromata/jactr/twm/twm.jactr"
+            class="de.monochromata.jactr.twm.TWMParticipant">
+      </astparticipant>
+      <astparticipant
+            class="de.monochromata.jactr.dm.NonMergingDeclarativeModuleParticipant"
+            content="de/monochromata/jactr/dm/declarative.jactr"
+            contributingClass="de.monochromata.jactr.dm.NonMergingDeclarativeModule6">
+      </astparticipant>
+      <astparticipant
+            class="de.monochromata.jactr.rm.ScopedRetrievalParticipant"
+            content="de/monochromata/jactr/rm/retrieval.jactr"
+            contributingClass="de.monochromata.jactr.rm.ScopedRetrievalModule6">
+      </astparticipant>
+      <astparticipant
+            class="de.monochromata.jactr.dl.CollectionDeclarativeLearningModuleParticipant6"
+            contributingClass="de.monochromata.jactr.dl.CollectionDeclarativeLearningModule6">
+      </astparticipant>
+   </extension>
+
+</plugin>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actr>
+ <model name="Core" version="6">
+  
+<!--
+ you should not have any module information here
+-->
+  <declarative-memory>
+    
+    <!--
+     any chunktypes and chunks should be defined here. when a model loads your
+     module, these will be imported automatically by the parser.
+    -->
+    
+   <chunk-type name="tlsConceptualSchema">
+    <slot name="typeVsToken" equals="null"/>
+    <slot name="objectVsMethod" equals="null"/>
+    <slot name="features" equals="null"/>
+   </chunk-type>
+    
+   <chunk-type name="tlSLexicalizedConceptualSchema" parent="tlsConceptualSchema">
+    <slot name="graphemic" equals="null"/>
+   </chunk-type>
+    
+   <chunk-type name="tlsWord">
+    <slot name="graphemic" equals="null"/>
+   </chunk-type>
+   
+   <chunk-type name="tlsReferencePotential" parent="tlsWord">
+    <slot name="isDefinite" equals="false"/>
+   </chunk-type>
+  </declarative-memory>
+    
+  <procedural-memory>
+    <!--
+    similarly any productions specified here will be imported
+    -->
+  </procedural-memory>
+
+    <!--
+     finally, you can specify some buffers here. however, your module
+     is still responsible for installing the actual buffer during installation
+    -->
+  <buffer name="twm">
+   <parameters>
+    <parameter name="Activation" value="1"/>
+    <parameter name="G" value="20"/>
+    <parameter name="StrictHarvestingEnabled" value="false"/>
+   </parameters>
+  </buffer>
+  <buffer name="twmGraphemic">
+   <parameters>
+    <parameter name="Activation" value="1"/>
+    <parameter name="G" value="20"/>
+    <parameter name="StrictHarvestingEnabled" value="false"/>
+   </parameters>
+  </buffer>
+ </model>
+ </actr>
