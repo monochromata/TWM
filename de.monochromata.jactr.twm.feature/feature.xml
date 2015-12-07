@@ -25,7 +25,7 @@
       <import plugin="org.jactr.io"/>
       <import plugin="org.jactr.tools"/>
       <import plugin="org.jactr.support"/>
-      <import plugin="org.commonreality"/>
+      <import plugin="org.commonreality.core"/>
       <import plugin="org.apache.log4j"/>
    </requires>
 
