@@ -1,2 +1,2 @@
 # TWM
-A module for text-world models in [jACT-R](http://jact-r.org/).
+A [jACT-R](http://jact-r.org/) module for text-world models.
