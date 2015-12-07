@@ -8,7 +8,7 @@
 		<relativePath>../parent/pom.xml</relativePath>
 	</parent>
 	<groupId>de.monochromata.jactr.twm</groupId>
-	<artifactId>de.monochromata.jactr.twm</artifactId>
+	<artifactId>de.monochromata.jactr.twm.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
 	<version>${newVersion}</version>
 	<description>An Eclipse feature for text-world models in jACT-R</description>
