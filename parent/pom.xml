@@ -1,0 +1,222 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.monochromata.jactr.twm</groupId>
+	<artifactId>parent</artifactId>
+	<version>${newVersion}</version>
+	<packaging>pom</packaging>
+	<description>A parent for artifacts in group de.monochromata.jactr.twm.</description>
+
+	<developers>
+		<developer>
+			<name>Sebastian Lohmeier</name>
+			<email>sl@monochromata.de</email>
+			<url>http://www.monochromata.de</url>
+		</developer>
+	</developers>
+
+	<!-- TODO: GPG, License, SCM, -->
+
+	<scm>
+		<!-- TODO: Github or LCube <url></url> -->
+		<!-- TODO: Github or LCube <connection></connection> -->
+		<!-- TODO: Github or LCube -->
+		<developerConnection>scm:git:https://github.com/monochromata/TWM.git/</developerConnection>
+	</scm>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- Copy nested JavaDoc resources -->
+		<docfilessubdirs>true</docfilessubdirs>
+		<!-- Include sources in JavaDoc -->
+		<linksource>true</linksource>
+		<commonreality.repo.url>http://jact-r.org/update2/release/org.commonreality.update/</commonreality.repo.url>
+		<jactr.repo.url>http://jact-r.org/update2/release/org.jactr.update/</jactr.repo.url>
+		<tycho.version>0.24.0</tycho.version>
+		<mono.jactr.twm.path>maven/releases/${project.groupId}</mono.jactr.twm.path>
+		<mono.jactr.twm.repo.url>http://monochromata.de/${mono.eclipse.anaphors.path}</mono.jactr.twm.repo.url>
+		<mono.jactr.twm.upload.url>sftp://ftp.monochromata.de/webseiten/${mono.eclipse.anaphors.path}</mono.jactr.twm.upload.url>
+	</properties>
+
+	<!-- The repository contents constitute an implicit target platform definition. -->
+	<repositories>
+		<repository>
+			<id>commonreality</id>
+			<url>${commonreality.repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>jactr</id>
+			<url>${jactr.repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<!-- Provides snapshots of jacoco-maven-plugin -->
+			<id>sonatype-oss-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<distributionManagement>
+		<repository>
+			<id>release-repository</id>
+			<url>${mono.jactr.twm.upload.url}</url>
+		</repository>
+		<!-- TODO: there are no snapshots, actually -->
+		<snapshotRepository>
+			<id>snapshot-repository</id>
+			<url>${mono.jactr.twm.upload.url}</url>
+			<uniqueVersion>false</uniqueVersion>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.10.3</version>
+					<configuration>
+						<quiet>true</quiet>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.6-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+					<!-- TODO: This is actually misplaced, but see https://www.eclipse.org/forums/index.php?t=msg&th=1068443&goto=1701679&#msg_1701679 
+						and https://bugs.eclipse.org/bugs/attachment.cgi?id=248973 and http://wiki.eclipse.org/OTJ -->
+					<filters>
+						<filter>
+							<type>eclipse-plugin</type>
+							<id>org.eclipse.jdt.core</id>
+							<restrictTo>
+								<version>3.11.0.v20150602-1242</version>
+							</restrictTo>
+						</filter>
+					</filters>
+					<!-- Maybe define a target-file-based target platform later -->
+					<!-- <target> -->
+					<!-- <artifact> -->
+					<!-- <groupId>de.monochromata.anaphors</groupId> -->
+					<!-- <artifactId>de.monochromata.anaphors.target</artifactId> -->
+					<!-- <version>${plugin.version}</version> -->
+					<!-- </artifact> -->
+					<!-- </target> -->
+				</configuration>
+			</plugin>
+		</plugins>
+		<extensions>
+			<!-- Enabling the use of SFTP -->
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.9</version>
+			</extension>
+		</extensions>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>replace-version-in-xml-files</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<version>1.5.3</version>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+						<configuration>
+							<preserveDir>true</preserveDir>
+							<includes>
+								<include>${basedir}/**/feature.xml</include>
+								<include>${basedir}/**/*.product</include>
+							</includes>
+							<token>version="${oldVersion}"</token>
+							<value>version="${newVersion}"</value>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>replace-version-in-manifest-mf-files</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<version>1.5.3</version>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+						<configuration>
+							<preserveDir>true</preserveDir>
+							<includes>
+								<include>${basedir}/**/META-INF/MANIFEST.MF</include>
+							</includes>
+							<token>Bundle-Version: ${oldVersion}</token>
+							<value>Bundle-Version: ${newVersion}</value>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>
