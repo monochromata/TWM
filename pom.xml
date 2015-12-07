@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.monochromata.jactr</groupId>
+	<artifactId>aggregator</artifactId>
+	<version>${newVersion}</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<maven.deploy.skip>true</maven.deploy.skip>
+		<maven.site.skip>true</maven.site.skip>
+		<maven.site.deploy.skip>true</maven.site.deploy.skip>
+	</properties>
+
+	<scm>
+		<!-- TODO: Github or LCube <url></url> -->
+		<!-- TODO: Github or LCube <connection></connection> -->
+		<!-- TODO: Github or LCube -->
+		<developerConnection>scm:git:https://github.com/monochromata/TWM.git/</developerConnection>
+	</scm>
+
+	<modules>
+		<module>de.monochromata.jactr.twm</module>
+		<module>de.monochromata.jactr.twm.feature</module>
+		<module>de.monochromata.jactr.twm.test</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.9.4</version>
+				<configuration>
+					<tag>${project.groupId}-${project.version}</tag>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
