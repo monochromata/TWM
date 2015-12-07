@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.monochromata.jactr.twm</groupId>
+		<artifactId>parent</artifactId>
+		<version>${newVersion}</version>
+		<relativePath>../parent/pom.xml</relativePath>
+	</parent>
+	<groupId>de.monochromata.jactr.twm</groupId>
+	<artifactId>de.monochromata.jactr.twm</artifactId>
+	<packaging>eclipse-feature</packaging>
+	<version>${newVersion}</version>
+	<description>An Eclipse feature for text-world models in jACT-R</description>
+
+	<properties>
+		<maven.site.skip>true</maven.site.skip>
+		<maven.site.deploy.skip>true</maven.site.deploy.skip>
+	</properties>
+
+	<scm>
+		<!-- TODO: Github or LCube <url></url> -->
+		<!-- TODO: Github or LCube <connection></connection> -->
+		<!-- TODO: Github or LCube -->
+		<developerConnection>scm:git:https://github.com/monochromata/TWM.git/</developerConnection>
+	</scm>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho.extras</groupId>
+				<artifactId>tycho-source-feature-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>source-feature</id>
+						<phase>package</phase>
+						<goals>
+							<goal>source-feature</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-p2-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<executions>
+					<execution>
+						<id>attach-p2-metadata</id>
+						<phase>package</phase>
+						<goals>
+							<goal>p2-metadata</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

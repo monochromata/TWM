@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="de.monochromata.jactr.twm.feature"
+      label="Text-world models for jACT-R"
+      version="1.0.0">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <url>
+      <update label="monochromata jACT-R module updates" url="http://monochromata.de/eclipse/sites/de.monochromata.jactr/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.jactr"/>
+      <import plugin="org.jactr.io"/>
+      <import plugin="org.jactr.tools"/>
+      <import plugin="org.jactr.support"/>
+      <import plugin="org.commonreality"/>
+      <import plugin="org.apache.log4j"/>
+   </requires>
+
+   <plugin
+         id="de.monochromata.jactr.twm"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
