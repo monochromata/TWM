@@ -30,6 +30,7 @@
 		<docfilessubdirs>true</docfilessubdirs>
 		<!-- Include sources in JavaDoc -->
 		<linksource>true</linksource>
+		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
 		<commonreality.repo.url>http://jact-r.org/update2/release/org.commonreality.update/</commonreality.repo.url>
 		<jactr.repo.url>http://jact-r.org/update2/release/org.jactr.update/</jactr.repo.url>
 		<tycho.version>0.24.0</tycho.version>
@@ -40,6 +41,11 @@
 
 	<!-- The repository contents constitute an implicit target platform definition. -->
 	<repositories>
+		<repository>
+			<id>mars</id>
+			<url>${mars-repo.url}</url>
+			<layout>p2</layout>
+		</repository>
 		<repository>
 			<id>commonreality</id>
 			<url>${commonreality.repo.url}</url>
