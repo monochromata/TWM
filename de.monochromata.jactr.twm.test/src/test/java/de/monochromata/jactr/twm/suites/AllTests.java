@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import de.monochromata.jactr.rm.ScopedRetrievalModule6Test;
 import de.monochromata.jactr.rm.ScopedRetrievalParticipantTest;
 import de.monochromata.jactr.tls.ScopeTest;
 
@@ -18,7 +19,7 @@ import de.monochromata.jactr.tls.ScopeTest;
  *
  */
 @RunWith(Suite.class)
-@SuiteClasses({ ScopeTest.class, ScopedRetrievalParticipantTest.class, })
+@SuiteClasses({ ScopeTest.class, ScopedRetrievalParticipantTest.class, ScopedRetrievalModule6Test.class, })
 public class AllTests {
 
 }
