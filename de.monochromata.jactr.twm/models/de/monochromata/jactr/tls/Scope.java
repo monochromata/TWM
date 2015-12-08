@@ -11,14 +11,28 @@ package de.monochromata.jactr.tls;
  */
 public class Scope {
 	
+	/**
+	 * The global scope encloses all other scopes and has an empty specifier.
+	 * 
+	 * @see #isIdenticalOrEncloses(Scope)
+	 */
 	public static final Scope GLOBAL = new Scope("");
 	
 	private final String specifier;
 	
-	public Scope(String specifier) {
+	/**
+	 * Use {@link #create(String)} instead.
+	 */
+	private Scope(String specifier) {
 		this.specifier = specifier;
 	}
 	
+	/**
+	 * Create a new scope or return {@link #GLOBAL} scope.
+	 * 
+	 * @param specifier The specifier for the scope, may be empty or {@code null}.
+	 * @return A new scope, or {@link #GLOBAL}, if the given specifier is {@code null} or empty.
+	 */
 	public static Scope create(String specifier) {
 		if(specifier == null || specifier.length() == 0) {
 			return GLOBAL;
