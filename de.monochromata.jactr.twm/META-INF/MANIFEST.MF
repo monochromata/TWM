@@ -3,6 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Text-world models for jACT-R
 Bundle-SymbolicName: de.monochromata.jactr.twm;singleton:=true
 Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: monochromata
 Export-Package: de.monochromata.jactr.dl,
  de.monochromata.jactr.dm,
