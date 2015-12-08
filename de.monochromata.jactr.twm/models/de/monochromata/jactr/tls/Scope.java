@@ -1,7 +1,7 @@
 package de.monochromata.jactr.tls;
 
 /**
- * A scope limites the context from which a chunk can be
+ * A scope limits the context from which a chunk can be
  * accessed. E.g. local variables declared in different
  * method declarations will have incompatible scopes so
  * that a request for a chunk in method declaration A
