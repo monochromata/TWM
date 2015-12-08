@@ -21,8 +21,7 @@ import org.jactr.core.slot.NotifyingSlot;
  * A slot that is able to contain more than one value
  * 
  * TODO: The ISlot interface should not be broken
- * TODO: Das muss dann aber auch bei der Berechnung der Aktivierung
- * berücksichtigt werden
+ * TODO: Needs to be considered when calculating activation
  */
 public class CollectionSlot implements Comparable<ISlot>, ISlot, IMutableSlot, ICollectionSlot {
 
