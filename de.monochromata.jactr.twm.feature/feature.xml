@@ -4,11 +4,11 @@
       label="Text-world models for jACT-R"
       version="1.0.0">
 
-   <description>
+   <description><![CDATA[
 An Eclipse feature for text-world models in jACT-R
-   </description>
+]]></description>
 
-   <copyright>
+   <copyright><![CDATA[
 Copyright (C) 2015 Sebastian Lohmeier sl@monochromata.de
 
 This program is free software: you can redistribute it and/or modify
@@ -23,9 +23,9 @@ GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
-   </copyright>
+   ]]></copyright>
 
-   <license url="http://www.gnu.org/licenses/lgpl-3.0.en.html">
+   <license url="http://www.gnu.org/licenses/lgpl-3.0.en.html"><![CDATA[
                    GNU LESSER GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -868,7 +868,7 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 
-   </license>
+   ]]></license>
 
    <url>
       <update label="monochromata jACT-R module updates" url="http://monochromata.de/eclipse/sites/de.monochromata.jactr/"/>
