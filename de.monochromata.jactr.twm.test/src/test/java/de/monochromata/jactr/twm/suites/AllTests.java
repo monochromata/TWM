@@ -4,6 +4,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import de.monochromata.jactr.tls.ScopeTest;
+
 /**
  * All tests for text-world models for jACT-R.
  * 
@@ -15,9 +17,7 @@ import org.junit.runners.Suite.SuiteClasses;
  *
  */
 @RunWith(Suite.class)
-@SuiteClasses({
-	// TODO: Add tests
-})
+@SuiteClasses({ ScopeTest.class, })
 public class AllTests {
 
 }
