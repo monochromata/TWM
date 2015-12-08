@@ -3,4 +3,4 @@
  * 
  * @author monochromata
  */
-package de.monochromata.eclipse.anaphors.suites;
+package de.monochromata.jactr.twm.suites;
