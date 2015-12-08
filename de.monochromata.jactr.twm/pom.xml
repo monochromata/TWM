@@ -16,6 +16,8 @@
 	<url>http://www.monochromata.de/maven/sites/${project.artifactId}</url>
 
 	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.site.skip>false</maven.site.skip>
 		<maven.site.deploy.skip>false</maven.site.deploy.skip>
 		<!-- Access the data file from the tests plugin. For this to be effective, 
@@ -59,14 +61,6 @@
 			</resource>
 		</resources>
 		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
