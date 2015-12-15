@@ -12,11 +12,27 @@
 		<maven.site.deploy.skip>true</maven.site.deploy.skip>
 	</properties>
 
+	<developers>
+		<developer>
+			<name>Sebastian Lohmeier</name>
+			<email>sl@monochromata.de</email>
+			<url>http://www.monochromata.de</url>
+		</developer>
+	</developers>
+
+	<!-- TODO: GPG key/signing -->
+
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License</name>
+			<url>http://www.gnu.org/licenses/lgpl-3.0.en.html</url>
+		</license>
+	</licenses>
+
 	<scm>
-		<!-- TODO: Github or LCube <url></url> -->
-		<!-- TODO: Github or LCube <connection></connection> -->
-		<!-- TODO: Github or LCube -->
+		<connection>scm:git:https://github.com/monochromata/TWM.git/</connection>
 		<developerConnection>scm:git:https://github.com/monochromata/TWM.git/</developerConnection>
+		<url>https://github.com/monochromata/TWM/</url>
 	</scm>
 
 	<modules>
