@@ -15,7 +15,7 @@
 		</developer>
 	</developers>
 
-	<!-- TODO: GPG, SCM, -->
+	<!-- TODO: GPG key/signing -->
 
 	<licenses>
 		<license>
