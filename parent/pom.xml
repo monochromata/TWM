@@ -41,6 +41,7 @@
 		<mars-repo.url>http://download.eclipse.org/releases/mars</mars-repo.url>
 		<mono.util.libs.repo.url>http://monochromata.de/eclipse/sites/de.monochromata.util.libs</mono.util.libs.repo.url>
 		<commonreality.repo.url>http://jact-r.org/update2/release/org.commonreality.update/</commonreality.repo.url>
+		<jactr.libs.repo.url>http://monochromata.de/eclipse/sites/org.jactr.libs/</jactr.libs.repo.url>
 		<jactr.repo.url>http://jact-r.org/update2/release/org.jactr.update/</jactr.repo.url>
 		<tycho.version>0.24.0</tycho.version>
 		<mono.jactr.twm.path>maven/releases/${project.groupId}</mono.jactr.twm.path>
@@ -63,6 +64,11 @@
 		<repository>
 			<id>commonreality</id>
 			<url>${commonreality.repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>jactr-libs</id>
+			<url>${jactr.libs.repo.url}</url>
 			<layout>p2</layout>
 		</repository>
 		<repository>
