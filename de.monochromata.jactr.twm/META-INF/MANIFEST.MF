@@ -13,14 +13,15 @@ Export-Package: de.monochromata.jactr.dl,
 Require-Bundle: org.jactr,
  org.jactr.io,
  org.jactr.tools,
- org.jactr.support,
  org.commonreality.core,
- org.apache.log4j
-Eclipse-RegisterBuddy: org.apache.commons.logging,
  org.apache.log4j,
- org.commonreality,
+ org.apache.commons.collections;bundle-version="3.2.1"
+Eclipse-RegisterBuddy: org.apache.commons.collections,
+ org.apache.log4j,
+ org.commonreality.core,
  org.jactr,
  org.jactr.io,
- org.jactr.support,
  org.jactr.tools
 Eclipse-BuddyPolicy: registered
+Bundle-ClassPath: target/classes/,
+ .

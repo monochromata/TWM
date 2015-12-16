@@ -11,7 +11,16 @@ Require-Bundle: de.monochromata.jactr.twm;bundle-version="[0.0.0,2.0.0)",
  org.jmock;bundle-version="2.8.1",
  org.jmock.junit4;bundle-version="2.8.1",
  nl.jqno.equalsverifier;bundle-version="1.7.5",
- org.jactr;bundle-version="2.0.0"
+ org.jactr,
+ org.jactr.io,
+ org.jactr.tools,
+ org.commonreality.core,
+ org.apache.log4j
+Eclipse-RegisterBuddy: de.monochromata.jactr.twm, org.jactr,
+ org.jactr.io,
+ org.jactr.tools,
+ org.commonreality.core,
+ org.apache.log4j
 Export-Package: de.monochromata.jactr.rm,
  de.monochromata.jactr.tls,
  de.monochromata.jactr.twm.suites

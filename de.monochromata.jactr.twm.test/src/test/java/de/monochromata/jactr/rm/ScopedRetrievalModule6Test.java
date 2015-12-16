@@ -3,6 +3,8 @@ package de.monochromata.jactr.rm;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.junit.Assert.assertThat;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
@@ -14,10 +16,13 @@ import org.jmock.Expectations;
 import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import de.monochromata.jactr.tls.Scope;
 import de.monochromata.jactr.twm.ITWM;
 
+@RunWith(JUnit4.class)
 public class ScopedRetrievalModule6Test {
 
 	@Rule
@@ -45,7 +50,8 @@ public class ScopedRetrievalModule6Test {
 	protected final ChunkTypeRequest cleanedRequest = new ChunkTypeRequest(chunkType);
 
 	@Test
-	public void nullScopeMustNotShrinkResults() {
+	public void nullScopeMustNotShrinkResults()
+			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 
 		context.checking(new Expectations() {
 			{
@@ -60,13 +66,13 @@ public class ScopedRetrievalModule6Test {
 			}
 		});
 
-		IChunk retrievedChunk = srm.selectRetrieval(results, errorChunk, originalRequest, cleanedRequest);
+		IChunk retrievedChunk = selectRetrieval();
 
 		assertThat(retrievedChunk, sameInstance(identicalScopeChunk));
 	}
 
 	@Test(expected = IllegalStateException.class)
-	public void chunkWithoutScopeRaisesIllegalStateException() {
+	public void chunkWithoutScopeRaisesIllegalStateException() throws NoSuchMethodException, IllegalAccessException {
 		context.checking(new Expectations() {
 			{
 				oneOf(results).iterator();
@@ -84,20 +90,27 @@ public class ScopedRetrievalModule6Test {
 		srm.setScope(scope);
 
 		// Throws IllegalStateException
-		srm.selectRetrieval(results, errorChunk, originalRequest, cleanedRequest);
+		try {
+			selectRetrieval();
+		} catch (InvocationTargetException ite) {
+			throw (IllegalStateException) ite.getTargetException();
+		}
 	}
 
 	@Test
-	public void chunkWithIdenticalScopeMustPass() {
+	public void chunkWithIdenticalScopeMustPass()
+			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		testPassingChunk(identicalScopeChunk, identicalScope);
 	}
 
 	@Test
-	public void chunkWithEnclosingScopeMustPass() {
+	public void chunkWithEnclosingScopeMustPass()
+			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		testPassingChunk(enclosingScopeChunk, enclosingScope);
 	}
 
-	protected void testPassingChunk(IChunk passingChunk, Scope passingChunkScope) {
+	protected void testPassingChunk(IChunk passingChunk, Scope passingChunkScope)
+			throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 		context.checking(new Expectations() {
 			{
 				oneOf(results).iterator();
@@ -121,13 +134,14 @@ public class ScopedRetrievalModule6Test {
 		});
 
 		srm.setScope(scope);
-		IChunk retrievedChunk = srm.selectRetrieval(results, errorChunk, originalRequest, cleanedRequest);
+		IChunk retrievedChunk = selectRetrieval();
 
 		assertThat(retrievedChunk, sameInstance(passingChunk));
 	}
 
 	@Test
-	public void outOfScopeChunkMustBeRemoved() {
+	public void outOfScopeChunkMustBeRemoved() throws NoSuchMethodException, SecurityException, IllegalAccessException,
+			IllegalArgumentException, InvocationTargetException {
 		context.checking(new Expectations() {
 			{
 				oneOf(results).iterator();
@@ -158,9 +172,18 @@ public class ScopedRetrievalModule6Test {
 		});
 
 		srm.setScope(scope);
-		IChunk retrievedChunk = srm.selectRetrieval(results, errorChunk, originalRequest, cleanedRequest);
+		IChunk retrievedChunk = selectRetrieval();
 
 		assertThat(retrievedChunk, sameInstance(identicalScopeChunk));
+	}
+
+	protected IChunk selectRetrieval() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+		Method selectRetrievalMethod = srm.getClass().getDeclaredMethod("selectRetrieval", Collection.class,
+				IChunk.class, ChunkTypeRequest.class, ChunkTypeRequest.class);
+		selectRetrievalMethod.setAccessible(true);
+		IChunk retrievedChunk = (IChunk) selectRetrievalMethod.invoke(srm, results, errorChunk, originalRequest,
+				cleanedRequest);
+		return retrievedChunk;
 	}
 
 }
