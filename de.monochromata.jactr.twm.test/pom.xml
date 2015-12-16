@@ -22,12 +22,12 @@
 		<jacoco.check.minimum.covered.branches.ratio>0.0</jacoco.check.minimum.covered.branches.ratio>
 		<swtbot.repo.url>http://download.eclipse.org/technology/swtbot/releases/latest/</swtbot.repo.url>
 	</properties>
-	
+
 	<repositories>
 		<repository>
-		<id>swtbot-update-site</id>
-		<url>${swtbot.repo.url}</url>
-		<layout>p2</layout>
+			<id>swtbot-update-site</id>
+			<url>${swtbot.repo.url}</url>
+			<layout>p2</layout>
 		</repository>
 	</repositories>
 
