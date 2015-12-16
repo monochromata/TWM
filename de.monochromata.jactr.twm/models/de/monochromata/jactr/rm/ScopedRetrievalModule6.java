@@ -24,8 +24,10 @@ public class ScopedRetrievalModule6 extends DefaultRetrievalModule6 implements I
 	/**
 	 * Set the scope to apply when choosing the best match.
 	 * 
-	 * @param scope The scope, may be {@code null} if no scope is to be checked.
-	 * @see #selectRetrieval(Collection, IChunk, ChunkTypeRequest, ChunkTypeRequest)
+	 * @param scope
+	 *            The scope, may be {@code null} if no scope is to be checked.
+	 * @see #selectRetrieval(Collection, IChunk, ChunkTypeRequest,
+	 *      ChunkTypeRequest)
 	 */
 	@Override
 	public void setScope(Scope scope) {
@@ -37,8 +39,11 @@ public class ScopedRetrievalModule6 extends DefaultRetrievalModule6 implements I
 	 * has been set on the module, the choice is restricted to chunks within
 	 * that scope or scopes enclosed by the set scope.
 	 * 
-	 * @param results The results to choose from.
-	 * @param errorChunk The chunk to return if no results are left or an error occurred. 
+	 * @param results
+	 *            The results to choose from.
+	 * @param errorChunk
+	 *            The chunk to return if no results are left or an error
+	 *            occurred.
 	 * @see #setScope(Scope)
 	 */
 	@Override
