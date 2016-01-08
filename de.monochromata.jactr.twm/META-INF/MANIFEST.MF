@@ -10,7 +10,7 @@ Export-Package: de.monochromata.jactr.dl,
  de.monochromata.jactr.rm,
  de.monochromata.jactr.tls,
  de.monochromata.jactr.twm
-Require-Bundle: org.jactr,
+Require-Bundle: org.jactr.core,
  org.jactr.io,
  org.jactr.tools,
  org.commonreality.core,
